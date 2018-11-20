@@ -1,0 +1,22 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#gameboard {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+
+    width: 80vw;
+    height: 80vh;
+}
+
+.card {
+    width: 10rem;
+    height: 10rem;
+    border: 1px solid black;
+}
