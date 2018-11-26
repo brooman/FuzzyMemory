@@ -1,5 +1,5 @@
 function createCard(value, img){
-    return `<div class="card" data-value="${value}">${img}</div>`
+    return `<div class="card" data-value="${value}"><h1>?</h1></div>`
 }
 
 function startGame(gameboard, pairCount){
@@ -8,7 +8,7 @@ function startGame(gameboard, pairCount){
     //This creates 2 of each card with same value.
     for (let i = 0; i < pairCount * 2; i++) {
         let value = i >= pairCount ? i - pairCount : i
-        gameboard.innerHTML += createCard(value, 'string')
+        gameboard.innerHTML += createCard(value)
     }
 }
 
@@ -32,6 +32,7 @@ function checkState(){
         //Unselect selected cards
         activeCards.forEach(function(card){
             card.classList.remove('active')
+            window.setTimeout(function(){card.firstChild.textContent = '?'}, 600)
         })
     }
 
