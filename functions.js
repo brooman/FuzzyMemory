@@ -10,6 +10,15 @@ function startGame(gameboard, pairCount){
         let value = i >= pairCount ? i - pairCount : i
         gameboard.innerHTML += createCard(value)
     }
+
+    const cards = document.querySelectorAll('.card')
+    cards.forEach(function(card){
+        card.addEventListener('click', function(){
+            card.firstChild.textContent = card.dataset.value;
+            card.classList.add('active')
+            checkState()
+        })
+    })
 }
 
 function resetGame(gameboard, pairCount){
