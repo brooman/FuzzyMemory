@@ -24,16 +24,21 @@ function checkState(){
     
     //Compare selected card values and complete them on match
     if(activeCards.length === 2){
-        if(activeCards[0].dataset.value === activeCards[1].dataset.value){
-            activeCards[0].classList.add('completed')
-            activeCards[1].classList.add('completed')
-        }
-
         //Unselect selected cards
         activeCards.forEach(function(card){
             card.classList.remove('active')
-            window.setTimeout(function(){card.firstChild.textContent = '?'}, 600)
+            window.setTimeout(function(){if(!card.classList.contains('completed')){card.firstChild.textContent = '?'}}, 600)
         })
+
+        //Check if they matched
+        if(activeCards[0].dataset.value === activeCards[1].dataset.value){
+            activeCards[0].classList.add('completed')    
+            activeCards[1].classList.add('completed')
+
+            //Display their value when completed
+            activeCards[0].firstChild.textContent = activeCards[0].dataset.value;
+            activeCards[1].firstChild.textContent = activeCards[1].dataset.value;
+        }
     }
 
     //Check if game is completed
