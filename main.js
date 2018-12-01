@@ -3,6 +3,8 @@ let pairCount = 6
 
 startGame(gameboard, pairCount)
 
+
+//Register Reset button
 const reset = document.querySelector('#reset')
 
 reset.addEventListener('click', function(){resetGame(gameboard, pairCount)})

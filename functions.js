@@ -3,6 +3,8 @@ function createCard(value, img){
 }
 
 function startGame(gameboard, pairCount){
+
+    // Build CSS Grid to hold cards
     let cols = Math.ceil(Math.sqrt(pairCount * 2))
     let rows = Math.ceil(Math.sqrt(pairCount * 2))
 
@@ -34,6 +36,7 @@ function startGame(gameboard, pairCount){
         gameboard.innerHTML += createCard(value)
     })
 
+    // Register card EventListeners
     const cards = document.querySelectorAll('.card')
     cards.forEach(function(card){
         card.addEventListener('click', function(){
@@ -45,6 +48,7 @@ function startGame(gameboard, pairCount){
 }
 
 function resetGame(gameboard, pairCount){
+    //Remove current gameboard and call startGame
     gameboard.innerHTML = ''
     startGame(gameboard, pairCount)
 }
