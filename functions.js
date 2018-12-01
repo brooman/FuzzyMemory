@@ -4,22 +4,35 @@ function createCard(value, img){
 
 function startGame(gameboard, pairCount){
     let cols = Math.ceil(Math.sqrt(pairCount * 2))
-    let rows = Math.floor(Math.sqrt(pairCount * 2))
+    let rows = Math.ceil(Math.sqrt(pairCount * 2))
 
     let grid = `grid-template-columns: ${"1fr ".repeat(cols)};
     grid-template-rows: ${"1fr ".repeat(rows)};`
-    console.log(grid)
 
     gameboard.setAttribute('style', grid)
 
+    //Build array of numbers
+    let orderArr = []
 
-    //We make duplicates by creating (pairCount * 2) cards
-    //Card value is 'i' if we are below paircount and 'i' - 'pairCount' if we are above.
-    //This creates 2 of each card with same value.
-    for (let i = 0; i < pairCount * 2; i++) {
-        let value = i >= pairCount ? i - pairCount : i
-        gameboard.innerHTML += createCard(value)
+    for (let i = 0; i < pairCount; i++) {
+        orderArr.push(i)
     }
+
+    //Duplicate array
+    orderArr.push(...orderArr)
+
+    //Shuffle array
+    for(let i = orderArr.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1))
+        let temp = orderArr[i]
+        orderArr[i] = orderArr[j]
+        orderArr[j] = temp
+    }
+
+    //Create cards
+    orderArr.forEach(function(value){
+        gameboard.innerHTML += createCard(value)
+    })
 
     const cards = document.querySelectorAll('.card')
     cards.forEach(function(card){
