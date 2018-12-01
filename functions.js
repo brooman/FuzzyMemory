@@ -5,7 +5,7 @@ function createCard(value, img){
 function createGrid(pairCount){
     //Calculate how many columns and rows we need
     const cols = Math.ceil(Math.sqrt(pairCount * 2))
-    let rows = cols;
+    let rows = cols
 
     //Check if we have an empty row, if so remove it.
     if(cols * rows > ((pairCount * 2) + cols) - 1){
@@ -73,6 +73,7 @@ function checkState(){
         activeCards.forEach(function(card){
             window.setTimeout(function(){
                 card.classList.remove('active')
+                updateStatusText(`${setDifficulty.toUpperCase()}`)
                 if(!card.classList.contains('completed')){
                     card.firstChild.textContent = '?'
                 }
@@ -87,12 +88,26 @@ function checkState(){
             //Display their value when completed
             activeCards[0].firstChild.textContent = activeCards[0].dataset.value;
             activeCards[1].firstChild.textContent = activeCards[1].dataset.value;
+            updateStatusText('Nice')
+        } else {
+            updateStatusText('Uh oh...')
         }
     }
 
     //Check if game is completed
     const completedCards = document.querySelectorAll('.completed')
     if(completedCards.length === cards.length){
-        console.log('Game won!')
+        updateStatusText('Game won!')
+    }
+}
+
+function updateStatusText(string){
+    const text = document.querySelector('#status-text')
+    try {
+        string.toString
+        text.textContent = string
+    } catch(e) {
+        text.textContent = 'Error'
+        console.log(e)
     }
 }

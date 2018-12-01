@@ -17,14 +17,18 @@ difficulty.forEach(function(item){
     item.addEventListener('click', function(){
         setDifficulty = this.id;
         resetGame(gameboard, pairCount[setDifficulty])
+        updateStatusText(`${setDifficulty.toUpperCase()}`)
     })
 })
 
 //Start the game on load
 startGame(gameboard, pairCount[setDifficulty])
-
+updateStatusText(`${setDifficulty.toUpperCase()}`)
 
 //Register Reset button
 const reset = document.querySelector('#reset')
 
-reset.addEventListener('click', function(){resetGame(gameboard, pairCount[setDifficulty])})
+reset.addEventListener('click', function(){
+    resetGame(gameboard, pairCount[setDifficulty])
+    updateStatusText(`${setDifficulty.toUpperCase()}`)
+})
