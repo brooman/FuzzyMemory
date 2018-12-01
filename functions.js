@@ -3,6 +3,7 @@ function createCard(value, img){
 }
 
 function createGrid(pairCount){
+    //Calculate how many columns and rows we need
     const cols = Math.ceil(Math.sqrt(pairCount * 2))
     let rows = cols;
 
@@ -11,6 +12,7 @@ function createGrid(pairCount){
         rows--;
     }
 
+    //Build CSS styling
     return `grid-template-columns: ${"1fr ".repeat(cols)};
     grid-template-rows: ${"1fr ".repeat(rows)};`
 }
