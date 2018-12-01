@@ -1,6 +1,12 @@
 function createCard(value, img){
     return `<div class="card" data-value="${value}"><h1>?</h1></div>`
 }
+function createGrid(pairCount){
+    const cols = Math.ceil(Math.sqrt(pairCount * 2))
+    return `grid-template-columns: ${"1fr ".repeat(cols)};`
+}
+
+/* Apparently there is something called 'grid-auto-rows: auto;' which makes this code irrelevant...
 
 function createGrid(pairCount){
     //Calculate how many columns and rows we need
@@ -11,11 +17,15 @@ function createGrid(pairCount){
     if(cols * rows > ((pairCount * 2) + cols) - 1){
         rows--;
     }
-
     //Build CSS styling
-    return `grid-template-columns: ${"1fr ".repeat(cols)};
-    grid-template-rows: ${"1fr ".repeat(rows)};`
+    return `
+    grid-template-columns: ${"1fr ".repeat(cols)};
+    grid-template-rows: ${"1fr ".repeat(rows)};
+    `
 }
+*/
+
+
 
 function startGame(gameboard, pairCount){
 
