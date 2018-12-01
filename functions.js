@@ -2,16 +2,23 @@ function createCard(value, img){
     return `<div class="card" data-value="${value}"><h1>?</h1></div>`
 }
 
+function createGrid(pairCount){
+    const cols = Math.ceil(Math.sqrt(pairCount * 2))
+    let rows = cols;
+
+    //Check if we have an empty row, if so remove it.
+    if(cols * rows > ((pairCount * 2) + cols) - 1){
+        rows--;
+    }
+
+    return `grid-template-columns: ${"1fr ".repeat(cols)};
+    grid-template-rows: ${"1fr ".repeat(rows)};`
+}
+
 function startGame(gameboard, pairCount){
 
     // Build CSS Grid to hold cards
-    let cols = Math.ceil(Math.sqrt(pairCount * 2))
-    let rows = Math.ceil(Math.sqrt(pairCount * 2))
-
-    let grid = `grid-template-columns: ${"1fr ".repeat(cols)};
-    grid-template-rows: ${"1fr ".repeat(rows)};`
-
-    gameboard.setAttribute('style', grid)
+    gameboard.setAttribute('style', createGrid(pairCount))
 
     //Build array of numbers
     let orderArr = []
