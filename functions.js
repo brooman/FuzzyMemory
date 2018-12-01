@@ -69,8 +69,12 @@ function checkState(){
     if(activeCards.length === 2){
         //Unselect selected cards
         activeCards.forEach(function(card){
-            card.classList.remove('active')
-            window.setTimeout(function(){if(!card.classList.contains('completed')){card.firstChild.textContent = '?'}}, 600)
+            window.setTimeout(function(){
+                card.classList.remove('active')
+                if(!card.classList.contains('completed')){
+                    card.firstChild.textContent = '?'
+                }
+            }, 600)
         })
 
         //Check if they matched
