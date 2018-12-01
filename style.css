@@ -73,7 +73,7 @@ button:active {
 }
 
 .completed {
-    background: limegreen ;
+    background: limegreen !important;
 }
 
 .card {
