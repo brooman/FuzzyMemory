@@ -3,6 +3,16 @@ function createCard(value, img){
 }
 
 function startGame(gameboard, pairCount){
+    let cols = Math.ceil(Math.sqrt(pairCount * 2))
+    let rows = Math.floor(Math.sqrt(pairCount * 2))
+
+    let grid = `grid-template-columns: ${"1fr ".repeat(cols)};
+    grid-template-rows: ${"1fr ".repeat(rows)};`
+    console.log(grid)
+
+    gameboard.setAttribute('style', grid)
+
+
     //We make duplicates by creating (pairCount * 2) cards
     //Card value is 'i' if we are below paircount and 'i' - 'pairCount' if we are above.
     //This creates 2 of each card with same value.
