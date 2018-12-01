@@ -12,14 +12,22 @@ body {
     flex-direction: column;
     height: 98vh;
 }
-
-#gameboard {
-    display: grid;
+.gameboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 40vw;
     height: 40vw;
     background: #333;
     border-radius: 70px;
-    padding: 5rem;
+    padding: 10vh;
+}
+#gameboard {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    gap: 3px;
+    line-height: 1px; /* Prevent text from resizing box */
 }
 
 #reset {
@@ -44,18 +52,19 @@ body {
 }
 
 .active {
-    background-color: aqua;
+    background: aqua !important;
 }
 
 .completed {
-    background-color: limegreen;
+    background: limegreen ;
 }
 
 .card {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
+    background: gold;
+
 }
 
 @keyframes background {
