@@ -1,5 +1,5 @@
 const gameboard = document.querySelector('#gameboard')
-let pairCount = 5
+let pairCount = 8
 
 startGame(gameboard, pairCount)
 
