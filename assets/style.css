@@ -22,24 +22,31 @@ img {
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
-    width: 60vw;
-    height: 60vw;
-    background: #333;
     border-radius: 70px;
-    padding: 10vh;
+    max-width: 60vw;
+    height: 100%;
 }
 #gameboard {
     display: grid;
-    grid-auto-rows: auto;
-    width: 80vw;
-    height: 80vw;
-    max-width: 100%;
+    grid-auto-rows: 1fr;
+    width: 100%;
     max-height: 100%;
     gap: 3px;
     line-height: 0px; /* Prevent text from resizing box */
 }
 
-
+#gameboard::before {
+    content: '';
+    width: 0;
+    padding-bottom: 100%;
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+  }
+  
+#gameboard > *:first-child {
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+  }
 
 #status-text {
     color: #fff;
@@ -92,7 +99,8 @@ button:active {
     justify-content: center;
     align-items: center;
     background: gold;
-    border-radius: 8px
+    border-radius: 8px;
+    color: #333;
 }
 .header {
     display: flex;
@@ -115,7 +123,7 @@ button:active {
 @media screen and (max-width: 580px){
     button {
         font-size: 1rem;
-        padding: 1rem 1rem;
+        padding: 1.5rem 1rem;
         width: 100%;
     }
     .difficulty-selector {
@@ -125,14 +133,10 @@ button:active {
         width: 100%;
         flex-direction: column;
     }
-}
-
-@media screen and (max-width: 1024px){
     .gameboard-container {
         align-items: center;
-        height: 90vh;
-        width: 90vw;
-        padding: 2rem;
+        width: 100%;
+        max-width: 90vw;
     }
 }
 
