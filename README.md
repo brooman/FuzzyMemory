@@ -1,6 +1,6 @@
 # Fuzzy Memory
 
-Small memory game built in vanilla js.
+Small memory game built in vanilla js.  
 You can play it here: [GH-Pages](https://laykith.github.io/FuzzyMemory)
 
 ## Local Installation
