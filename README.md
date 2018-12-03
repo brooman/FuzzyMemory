@@ -11,4 +11,4 @@ You can play it here: [GH-Pages](https://laykith.github.io/FuzzyMemory)
 
 ## Licence
 
-[MIT](LICENCE) (c) 2018 André Broman
+[MIT](LICENCE) © 2018 André Broman
