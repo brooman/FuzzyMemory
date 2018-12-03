@@ -1,4 +1,4 @@
-function createCard(value, img){
+function createCard(value){
     return `<div class="card" data-value="${value}"><h1>?</h1></div>`
 }
 function createGrid(pairCount){
@@ -113,11 +113,6 @@ function checkState(){
 
 function updateStatusText(string){
     const text = document.querySelector('#status-text')
-    try {
         string.toString
         text.textContent = string
-    } catch(e) {
-        text.textContent = 'Error'
-        console.log(e)
-    }
 }
