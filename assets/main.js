@@ -4,9 +4,9 @@ const difficulty = document.querySelectorAll('.difficulty-selector')
 
 //How many pairs on each difficulty
 const pairCount = {
-    easy: 6,
-    medium: 7,
-    hard: 8
+    easy: 8,
+    medium: 9,
+    hard: 10
 }
 
 //Selected difficulty
