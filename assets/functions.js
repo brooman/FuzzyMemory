@@ -59,9 +59,13 @@ function startGame(gameboard, pairCount){
     const cards = document.querySelectorAll('.card')
     cards.forEach(function(card){
         card.addEventListener('click', function(){
-            card.firstChild.textContent = card.dataset.value;
-            card.classList.add('active')
-            checkState()
+            //Make sure we only have 0 - 2 active cards to prevent weird bugs when spam clicking cards (setTimeout still running.)
+            const activeCards = document.querySelectorAll('.active')
+            if(activeCards.length < 2){
+                card.firstChild.textContent = card.dataset.value;
+                card.classList.add('active')
+                checkState()
+            }
         })
     })
 }
